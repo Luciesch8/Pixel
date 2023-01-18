@@ -2,11 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\EditorRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\EditorRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Ignore;
 
 #[ORM\Entity(repositoryClass: EditorRepository::class)]
 class Editor
@@ -20,9 +21,11 @@ class Editor
     private string $name;
 
     #[ORM\OneToMany(mappedBy: 'editor', targetEntity: Game::class)]
+    #[Ignore]
     private Collection $games;
 
     #[ORM\OneToMany(mappedBy: 'constructor', targetEntity: Support::class)]
+    #[Ignore]
     private Collection $supports;
 
     public function __construct()

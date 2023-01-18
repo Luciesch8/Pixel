@@ -2,11 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\SupportRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\SupportRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Ignore;
 
 #[ORM\Entity(repositoryClass: SupportRepository::class)]
 class Support
@@ -29,6 +30,7 @@ class Support
     private ?Editor $constructor = null;
 
     #[ORM\ManyToMany(targetEntity: Game::class, mappedBy: 'supports')]
+    #[Ignore]
     private Collection $games;
 
     public function __construct()
