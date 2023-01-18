@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %} 
+    {{ encore_entry_link_tags('front') }}
+{% endblock %}
+
+{% block body %}
+    <header id="main-header">
+        <div class="display-6">Pixel</div>
+        <nav class="navbar navbar-expand-lg bg-light">
+            {{ knp_menu_render('main', {style: 'horizontal'}) }}
+            <div class="ms-auto">
+                {{ knp_menu_render('user', {style: 'horizontal'}) }}
+            </div>
+        </nav>
+    </header>
+
+    <div id="app">
+        {% block content %}{% endblock %}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('front') }}
+{% endblock %}

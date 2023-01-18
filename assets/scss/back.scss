@@ -1,0 +1,18 @@
+$success: #18ad8a;
+
+@import '../../node_modules/bootswatch/dist/simplex/variables';
+
+@import './common.scss';
+
+@import '../../node_modules/bootswatch/dist/simplex/bootswatch';
+
+.admin-menu {
+    min-height: 100vh;
+    .nav {
+        .nav-item {
+            .nav-link {
+                color: #eee;
+            }
+        }
+    }
+}
